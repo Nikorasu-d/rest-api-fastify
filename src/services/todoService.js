@@ -42,7 +42,6 @@ const getTodo = async (id) => {
 }
     
 const postTodo = async(document) => {
-    
     if(validateJSON(document)){
         try {
             console.log(`Posting: ${JSON.stringify(document)}`)
