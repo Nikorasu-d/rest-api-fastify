@@ -49,7 +49,8 @@ const postTodo = (request, reply) => {
         })
 }
 const putTodo = (request, reply) => {
-    reply.send("putTodo")
+    const{id} = request.params
+    reply.send(`putTodo ${id}`)
 }
 const deleteTodo = (request, reply) => {
     const{id} = request.params
