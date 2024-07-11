@@ -20,6 +20,7 @@ This is not a Course but i will expose some useful information if you to want bu
 1. If you don't have it, please install Node.js [>> Here](https://nodejs.org)
 2. If you dont have it, please Install Git [>> Here](https://git-scm.com/downloads)
 
+>[!Important]
 >Is a must have to install this tools, then restart your PC
 
 ### Once you do the Must have:
@@ -98,7 +99,7 @@ npm run dev  -> this one gonna launch nodemon index.js
 npm run start  -> this one gonna launch node index.js
 
 ```
-
+>[!NOTE]
 > If you want to develop changes over the code use dev, this one is going to use nodemon and you will be able to see changes in real time if you make a save when the server is running
 
 ### For those who wants to deploy this API on [Render](render.com)
@@ -115,7 +116,7 @@ git commit -m "First commit"
 git branch -M main
 git push origin main
 ```
-
+>[!IMPORTANT]
 > When you're ready please take care of include all the env variables you have on **.env** and add an extra one called **RENDER** and value it to **true**, like this into the environment variables panel when you config your web service on **RENDER**:
 
 ```bash
