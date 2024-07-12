@@ -12,6 +12,8 @@ I've deployed this app previously on render, you can open this links to see this
 >If you notice there is delay on the reply, please wait the free web service on render may shutdown the server when there is no use
 
 - [GET ALL](https://rest-api-fastify.onrender.com/api/v1/todos/all)
+- [GET HOLA MUNDO](https://rest-api-fastify.onrender.com/api/v1/todos/668f7ddab018f6429f3f0f0d)
+- You need an API key to test **POST, PUT AND DELETE**, so test this locally please
 
 > [!WARNING]
 > I'm assuming you have a MongoDB database already mounted locally or you have a MongoDB Atlas Cluster, if you haven't, please create one
