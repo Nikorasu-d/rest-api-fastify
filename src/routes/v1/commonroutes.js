@@ -1,19 +1,16 @@
 const { getAllTodos, getTodo, postTodo, putTodo, deleteTodo } = require("../../controller/todoController")
 
-const routes = async (fastify, options) =>{
+const routes = async (app, options) =>{
 
-    fastify.get("/todos/all", getAllTodos)
+    app.get("/todos/all", getAllTodos)
 
-    fastify.get("/todos/:id", getTodo)
+    app.get("/todos/:id", getTodo)
 
-    fastify.post("/todos", postTodo)
+    app.post("/todos", postTodo)
 
-    fastify.put("/todos",putTodo)
+    app.put("/todos",putTodo)
 
-    fastify.delete("/todos/:id", deleteTodo)
+    app.delete("/todos/:id", deleteTodo)
 }
-    
-    
-
 
 module.exports = routes

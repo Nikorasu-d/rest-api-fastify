@@ -1,33 +1,35 @@
+// Instance dotenv for process.env variables
+const dotenv = require("dotenv")
+dotenv.config()
+
+//Configure port
 const port = process.env.PORT || 3000;
 const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
 
-
-// Instance fastify
-const fastify = require('fastify')({
+// Instance app
+const app = require('fastify')({
   logger: true
 })
 
 //Declare Routes
 const v1todosRoutes = require("./src/routes/v1/commonroutes")
+
 //Register API Routes
-fastify.register(v1todosRoutes,{prefix : "/api/v1"})
+app.register(v1todosRoutes, {prefix : "/api/v1"})
 
-
-// static localhost:3000/ that prints Hola mundo
-fastify.get('/', async (request, reply) => {
+//This is just a Hello World
+app.get('/', async (request, reply) => {
   console.clear()
   console.log("Accessing Home API Page")
-  return reply.send("Hello World from Fastify")
+  return reply.send("Hello World from app")
 })
 
-/**
- * Run the server!
- */
+//Run web service
 const start = async () => {
   try {
-    await fastify.listen({host: host, port: port})
+    await app.listen({host: host, port: port})
   } catch (err) {
-    fastify.log.error(err)
+    app.log.error(err)
     process.exit(1)
   }
 }
