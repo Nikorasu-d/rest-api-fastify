@@ -2,7 +2,8 @@
   "name": "rest-api-fastify",
   "version": "1.0.0",
   "description": "Simple TODO API with Node.js, MongoDB and fastify",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
@@ -13,7 +14,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
-    "mongodb": "^6.8.0"
+    "mongoose": "^8.5.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

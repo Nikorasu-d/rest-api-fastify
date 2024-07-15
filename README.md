@@ -11,8 +11,8 @@ I've deployed this app previously on render, you can open this links to see this
 >[!IMPORTANT]
 >If you notice there is delay on the reply, please wait the free web service on render may shutdown the server when there is no use
 
-- [GET ALL](https://rest-api-fastify.onrender.com/api/v1/todos/all)
-- [GET HOLA MUNDO](https://rest-api-fastify.onrender.com/api/v1/todos/668f7ddab018f6429f3f0f0d)
+- [GET ALL](https://rest-api-fastify.onrender.com/api/v2/todos/all)
+- [GET HOLA MUNDO](https://rest-api-fastify.onrender.com/api/v2/todos/668f7ddab018f6429f3f0f0d)
 - You need an API key to test **POST, PUT AND DELETE**, so test this locally please
 
 > [!WARNING]
@@ -36,7 +36,7 @@ I've deployed this app previously on render, you can open this links to see this
 
 ### Once you do the Must have:
 
-You need to create folder where you want to clone this repo, i suggest to create a git folder on your personal user home: ```C:/users/<your_user>/git```
+You need to create a folder where you want to clone this repo, i suggest to create a git folder on your personal user home: ```C:/users/<your_user>/git```
 
 Then open the created folder and once you are in, open a **Terminal / CMD / Git Bash / Bash** and type:
 
@@ -75,12 +75,16 @@ When you can see all the files you need to create a file without extension calle
 ./--
     node_modules
     src
+        config
+            env.js
+            database.js
         model
             todo.js
         controller
             todoController.js
         routes
-            commonRoutes.js
+            v2
+                commonRoutes.js
         services
             todoService.js       
     .gitignore

@@ -1,22 +1,32 @@
-const todoService = require("../services/todoService")
+// Imports
+import {
+    getAllTodos as getAllTodosService,
+    getTodo as getTodoService,
+    postTodo as postTodoService,
+    putTodo as putTodoService,
+    deleteTodo as deleteTodoService
+} from "../services/todoService.js"
+import { API_KEY } from "../config/env.js"
 
-const validateApiKey = (incomingKey) => incomingKey === process.env.API_KEY
+//Validate incoming API KEY
+const validateApiKey = (incomingKey) => incomingKey === API_KEY
 
-const getAllTodos = (request, reply) => {
-    todoService.getAllTodos().then((result) =>
+
+//Declare and Export Functions
+export const getAllTodos = (request, reply) => {
+    getAllTodosService().then((result) =>
         reply.status(200).send({
             message : result.message,
             value : result.value})
-    ).catch(() => 
+    ).catch((error) => 
         reply.status(500).send({
             message:500,
-            value : {}
+            value : error
         })
     )
 }
-
-const getTodo = (request, reply) => {
-    todoService.getTodo(request.params.id).then((result) =>
+export const getTodo = (request, reply) => {
+    getTodoService(request.params.id).then((result) =>
         reply.status(result.message).send({
             message : result.message,
             value : result.value})
@@ -27,17 +37,16 @@ const getTodo = (request, reply) => {
         })
     )
 }
-
-const postTodo = (request, reply) => {
+export const postTodo = (request, reply) => {
     validateApiKey(request.headers["x-api-key"]) ? 
-    todoService.postTodo(request.body).then((result) =>{
+    postTodoService(request.body).then((result) =>{
         reply.status(result.message).send({
             message : result.message,
             value : result.value})
-    }).catch(() => 
+    }).catch((error) => 
         reply.status(500).send({
             message:500,
-            value : {}
+            value : error
         })
     ) 
     : 
@@ -46,10 +55,9 @@ const postTodo = (request, reply) => {
             value : "Not valid API Key or Missing, header must include x-api-key"
         })
 }
-
-const putTodo = (request, reply) => {
+export const putTodo = (request, reply) => {
     validateApiKey(request.headers["x-api-key"]) ? 
-    todoService.putTodo(request.body).then((result) =>{
+    putTodoService(request.body).then((result) =>{
         reply.status(result.message).send({
             message : result.message,
             value : result.value})
@@ -65,10 +73,9 @@ const putTodo = (request, reply) => {
         value : "Not valid API Key or Missing, header must include x-api-key"
     })
 }
-
-const deleteTodo = (request, reply) => {
+export const deleteTodo = (request, reply) => {
     validateApiKey(request.headers["x-api-key"]) ? 
-    todoService.deleteTodo(request.params.id).then((result) =>{
+    deleteTodoService(request.params.id).then((result) =>{
         reply.status(result.message).send({
             message : result.message,
             value : result.value})
@@ -83,12 +90,4 @@ const deleteTodo = (request, reply) => {
         message: 401,
         value : "Not valid API Key or Missing, header must include x-api-key"
     })
-}
-
-module.exports = {
-    getAllTodos,
-    getTodo,
-    postTodo,
-    putTodo,
-    deleteTodo
 }

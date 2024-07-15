@@ -1,18 +1,14 @@
-//In the future this will be a Mongoose model
+// Imports
+import { Schema, model } from "mongoose";
+import { COLLECTION } from "../config/env.js";
 
-const Schema = (document) => {
-    const Schema = {}
-    if(document.hasOwnProperty("title") && typeof(document.title) === "string" ){
-        Schema["title"] = document.title
-    }
+//Define Schema
+const todoSchema = new Schema({
+    title:{type: String, required: true, default: ""},
+    completed:{type : Boolean, default : false}
+},{
+    timestamps : true, collection : COLLECTION 
+})
 
-    if(document.hasOwnProperty("completed") && typeof(document.completed) === "boolean"){
-        Schema["completed"] = document.completed
-    }
-    
-    return Schema
-}
-
-module.exports = {
-    Schema
-}
+//Exports Model
+export default model('todo', todoSchema)
