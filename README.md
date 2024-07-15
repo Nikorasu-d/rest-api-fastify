@@ -12,7 +12,7 @@ I've deployed this app previously on render, you can open this links to see this
 >If you notice there is delay on the reply, please wait the free web service on render may shutdown the server when there is no use
 
 - [GET ALL](https://rest-api-fastify.onrender.com/api/v2/todos/all)
-- [GET HOLA MUNDO](https://rest-api-fastify.onrender.com/api/v2/todos/668f7ddab018f6429f3f0f0d)
+- [GET HOLA MUNDO](https://rest-api-fastify.onrender.com/api/v2/todos/6694b628d8242ab2603e79aa)
 - You need an API key to test **POST, PUT AND DELETE**, so test this locally please
 
 > [!WARNING]
@@ -86,9 +86,9 @@ When you can see all the files you need to create a file without extension calle
             v2
                 commonRoutes.js
         services
-            todoService.js       
+            todoService.js  
+    index.js     
     .gitignore
-    index.js
     package-lock.json
     package.json
     README.md
@@ -112,8 +112,8 @@ Once you complete the previous configuration, you're ready to test it, to do tha
 
 ```bash
 
-npm run dev  -> this one gonna launch nodemon index.js
-npm run start  -> this one gonna launch node index.js
+npm run dev  -> this one gonna launch nodemon src/index.js
+npm run start  -> this one gonna launch node src/index.js
 
 ```
 >[!NOTE]
