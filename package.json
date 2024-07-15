@@ -2,7 +2,7 @@
   "name": "rest-api-fastify",
   "version": "1.0.0",
   "description": "Simple TODO API with Node.js, MongoDB and fastify",
-  "main": "src/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
