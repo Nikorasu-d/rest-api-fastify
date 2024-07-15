@@ -1,14 +1,14 @@
 //Imports
 import Fastify from 'fastify'
 import {routes as routesV2} from './src/routes/v2/commonroutes.js'
-import {PORT, RENDER} from './src/config/env.js'
+import {PORT, HOST} from './src/config/env.js'
 
 // Instance Fastify Web Service
 const app = Fastify({logger : true})
 
 //Configure Port and Host
 const port = PORT !== undefined ? PORT : 3000;
-const host = RENDER !== undefined? `0.0.0.0` : `localhost`;
+const host = HOST !== undefined ? HOST : `localhost`;
 
 //Register API Routes
 app.register(routesV2, {prefix : "/api/v2"})
