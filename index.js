@@ -1,7 +1,7 @@
 //Imports
 import Fastify from 'fastify'
-import {routes as routesV2} from './routes/v2/commonroutes.js'
-import {PORT, RENDER} from './config/env.js'
+import {routes as routesV2} from './src/routes/v2/commonroutes.js'
+import {PORT, RENDER} from './src/config/env.js'
 
 // Instance Fastify Web Service
 const app = Fastify({logger : true})
