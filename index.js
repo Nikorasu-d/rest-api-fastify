@@ -7,7 +7,7 @@ import {PORT, RENDER} from './src/config/env.js'
 const app = Fastify({logger : true})
 
 //Configure Port and Host
-const port = PORT || 3000;
+const port = PORT !== undefined ? PORT : 3000;
 const host = RENDER !== undefined? `0.0.0.0` : `localhost`;
 
 //Register API Routes
