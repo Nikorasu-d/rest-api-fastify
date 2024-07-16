@@ -103,6 +103,8 @@ CON_STR = "your_connection_string"
 API_KEY = "choose a password for post, put and delete"
 DB = "name of your database"
 COLLECTION = "name of your collection"
+HOST = "default localhost"
+PORT = "default 3000"
 
 ```
 
@@ -112,8 +114,8 @@ Once you complete the previous configuration, you're ready to test it, to do tha
 
 ```bash
 
-npm run dev  -> this one gonna launch nodemon src/index.js
-npm run start  -> this one gonna launch node src/index.js
+npm run dev  -> this one gonna launch nodemon index.js
+npm run start  -> this one gonna launch node index.js
 
 ```
 >[!NOTE]
@@ -134,11 +136,11 @@ git branch -M main
 git push origin main
 ```
 >[!IMPORTANT]
-> When you're ready please take care of include all the env variables you have on **.env** and add an extra one called **RENDER** and value it to **true**, like this into the environment variables panel when you config your web service on **RENDER**:
+> When you're ready please take care of include all the env variables you have on **.env** changing HOST to 0.0.0.0 into the environment variables panel when you config your web service on **RENDER**:
 
 ```bash
 
-RENDER = true
+HOST = 0.0.0.0
 
 ```
 
