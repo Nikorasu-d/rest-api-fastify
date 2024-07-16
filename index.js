@@ -10,10 +10,9 @@ const app = Fastify({logger : true})
 //Configure Port and Host
 const port = PORT !== undefined ? PORT : 3000
 const host = HOST !== undefined ? HOST : `localhost`
-const origins = ALLOWED_ORIGINS !== undefined? ALLOWED_ORIGINS.split(',') : '*'
 
 await app.register(cors, { 
-    origin: origins,
+    origin: '*',
     methods: ['GET', 'POST','PUT','DELETE']
 })
 
