@@ -2,7 +2,7 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import {routes as routesV2} from './src/routes/v2/commonroutes.js'
-import {PORT, HOST, ALLOWED_ORIGINS} from './src/config/env.js'
+import {PORT, HOST} from './src/config/env.js'
 
 // Instance Fastify Web Service
 const app = Fastify({logger : true})
