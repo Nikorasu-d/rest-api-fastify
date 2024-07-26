@@ -6,88 +6,87 @@ import {
     putTodo as putTodoService,
     deleteTodo as deleteTodoService
 } from "../services/todoService.js"
+
 import { API_KEY } from "../config/env.js"
+
+
+
 
 //Validate incoming API KEY
 const validateApiKey = (incomingKey) => incomingKey === API_KEY
 
-
-//Declare and Export Functions
+//GET All Controller
 export const getAllTodos = (request, reply) => {
     getAllTodosService().then((result) =>
-        reply.status(200).send({
-            message : result.message,
-            value : result.value})
+        reply.status(result.message).send(result)
     ).catch((error) => 
-        reply.status(500).send({
-            message:500,
-            value : error
-        })
+        reply.status(error.statusCode).send(error)
     )
 }
+
+//GET Controller
 export const getTodo = (request, reply) => {
     getTodoService(request.params.id).then((result) =>
-        reply.status(result.message).send({
-            message : result.message,
-            value : result.value})
-    ).catch(() => 
-        reply.status(500).send({
-            message:500,
-            value : {}
-        })
-    )
-}
-export const postTodo = (request, reply) => {
-    validateApiKey(request.headers["x-api-key"]) ? 
-    postTodoService(request.body).then((result) =>{
-        reply.status(result.message).send({
-            message : result.message,
-            value : result.value})
-    }).catch((error) => 
-        reply.status(500).send({
-            message:500,
-            value : error
-        })
-    ) 
-    : 
-    reply.status(401).send({
-            message: 401,
-            value : "Not valid API Key or Missing, header must include x-api-key"
-        })
-}
-export const putTodo = (request, reply) => {
-    validateApiKey(request.headers["x-api-key"]) ? 
-    putTodoService(request.body).then((result) =>{
-        reply.status(result.message).send({
-            message : result.message,
-            value : result.value})
-    }).catch((error) => 
-        reply.status(500).send({
-            message:500,
-            value : error
-        })
-    )
-    :
-    reply.status(401).send({
-        message: 401,
-        value : "Not valid API Key or Missing, header must include x-api-key"
+        reply.status(result.message).send(result)
+    ).catch((error) => {
+        reply.status(error.statusCode).send(error)
     })
 }
-export const deleteTodo = (request, reply) => {
-    validateApiKey(request.headers["x-api-key"]) ? 
-    deleteTodoService(request.params.id).then((result) =>{
-        reply.status(result.message).send({
-            message : result.message,
-            value : result.value})
+
+//POST Controller
+export const postTodo = (request, reply) => {
+    
+    //Throws Error when Missing or Invalid API Key
+    if(!validateApiKey(request.headers["x-api-key"])){
+        const error = new Error('API key is Missing or Invalid')
+        error.statusCode = 401
+        throw error
+    }
+    
+    //Post Service
+    postTodoService(request.body).then((result) =>{
+        reply.status(result.message).send(result)
+    }).catch((error) => {
+        //Check Error and Send to Handler
+        reply.status(error.statusCode).send(error) 
+    })
+
+}
+
+// PUT Controller
+export const putTodo = (request, reply) => {
+
+    //Throws Error when Missing or Invalid API Key
+    if(!validateApiKey(request.headers["x-api-key"])){
+        const error = new Error('API key is Missing or Invalid')
+        error.statusCode = 401
+        throw error
+    }
+
+    //Put Service
+    putTodoService(request.params.id,request.body).then((result) =>{
+        reply.status(result.message).send(result)
     }).catch((error) => 
-        reply.status(500).send({
-            message:500,
-            value : error
-        })
+        reply.status(error.statusCode).send(error)
     )
-    :
-    reply.status(401).send({
-        message: 401,
-        value : "Not valid API Key or Missing, header must include x-api-key"
+    
+
+}
+
+//DELETE Controller
+export const deleteTodo = (request, reply) => {
+
+    //Throws Error when Missing or Invalid API Key
+    if(!validateApiKey(request.headers["x-api-key"])){
+        const error = new Error('API key is Missing or Invalid')
+        error.statusCode = 401
+        throw error
+    }
+
+    //Delete Service
+    deleteTodoService(request.params.id).then((result) =>{
+        reply.status(result.message).send(result)
+    }).catch((error) => {
+        reply.status(error.statusCode).send(error)
     })
 }

@@ -11,17 +11,32 @@ const app = Fastify({logger : true})
 const port = PORT !== undefined ? PORT : 3000
 const host = HOST !== undefined ? HOST : `localhost`
 
+//CORS
 await app.register(cors, { 
     origin: '*',
     methods: ['GET', 'POST','PUT','DELETE']
 })
 
+//Error Handler Middleware
+app.setErrorHandler((error, req, res) => {
+
+  const {statusCode, message} = error
+
+  const replyMessage = {
+      message : statusCode,
+      value : `From Handler: ${message}`
+  }
+  
+  res.status(error.statusCode).send(replyMessage)
+})
+
+
 //Register API Routes
 app.register(routesV2, {prefix : "/api/v2"})
 
 //This is just a Hello World
-app.get('/', async (request, reply) => {
-  return reply.type('text/html').send(`<h1 style="text-align:center; font-family: Helvetica">Hello World</h1>`)
+app.get('/', async (req, res) => {
+  return res.type('text/html').send(`<h1 style="text-align:center; font-family: Helvetica">Hello World</h1>`)
 })
 
 //Start Web Service Function
