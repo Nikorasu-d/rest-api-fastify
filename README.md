@@ -12,7 +12,7 @@ I've deployed this app previously on render, you can open this links to see this
 >If you notice there is delay on the reply, please wait the free web service on render may shutdown the server when there is no use
 
 - [GET ALL](https://rest-api-fastify.onrender.com/api/v2/todos/all)
-- [GET HOLA MUNDO](https://rest-api-fastify.onrender.com/api/v2/todos/6694b628d8242ab2603e79aa)
+- [GET Hola Mundo desde MongoDB :)](https://rest-api-fastify.onrender.com/api/v2/todos/66a2aae01ee82cd2142b742a)
 - You need an API key to test **POST, PUT AND DELETE**, so test this locally please
 
 > [!WARNING]
