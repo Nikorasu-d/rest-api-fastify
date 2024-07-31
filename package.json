@@ -15,7 +15,8 @@
     "@fastify/cors": "^9.0.1",
     "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
-    "mongoose": "^8.5.1"
+    "mongoose": "^8.5.1",
+    "vite": "^5.3.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

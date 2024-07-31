@@ -30,6 +30,15 @@ app.setErrorHandler((error, req, res) => {
   res.status(error.statusCode).send(replyMessage)
 })
 
+//Not Found Route Handler Middleware
+app.setNotFoundHandler((req, res) => {
+
+  res.status(404).send({
+    message: 404,
+    value: `From Handler: ${req.raw.url} not Found on Server`
+  })
+  
+})
 
 //Register API Routes
 app.register(routesV2, {prefix : "/api/v2"})
