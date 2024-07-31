@@ -1,4 +1,4 @@
-## Simple TO DO API using NodeJS, Fastify Framework and MongoDB
+## Simple Restful API (Only Endpoints) with Node.js, MongoDB and Fastify
 
 This a Simple Project Based on a NUWE Challenge, you can use this project as a reference to learn the basics of **Restful API Development** with a different framework than [ExpressJS](https://expressjs.com/) in this case using [Fastify](https://fastify.dev/) to mount a web service
 
@@ -12,7 +12,7 @@ I've deployed this app previously on render, you can open this links to see this
 >If you notice there is delay on the reply, please wait the free web service on render may shutdown the server when there is no use
 
 - [GET ALL](https://rest-api-fastify.onrender.com/api/v2/todos/all)
-- [GET HOLA MUNDO](https://rest-api-fastify.onrender.com/api/v2/todos/6694b628d8242ab2603e79aa)
+- [GET Hola Mundo desde MongoDB :)](https://rest-api-fastify.onrender.com/api/v2/todos/66a2aae01ee82cd2142b742a)
 - You need an API key to test **POST, PUT AND DELETE**, so test this locally please
 
 > [!WARNING]
