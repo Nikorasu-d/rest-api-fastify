@@ -20,7 +20,7 @@ await app.register(cors, {
 })
 
 //Error Handler Middleware
-app.setErrorHandler(ErrorHandler)
+app.setErrorHandler(errorHandler)
 
 //Not Found Route Handler Middleware
 app.setNotFoundHandler(notFoundHandler)
