@@ -3,7 +3,7 @@ import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import {routes as routesV2} from './src/routes/v2/commonroutes.js'
 import {PORT, HOST} from './src/config/env.js'
-import ErrorHandler from './src/middleware/ErrorHandler.js'
+import errorHandler from './src/middleware/errorHandler.js'
 import notFoundHandler from './src/middleware/notFoundHandler.js'
 
 // Instance Fastify Web Service
