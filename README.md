@@ -1,12 +1,12 @@
 ## Simple Restful API (Only Endpoints) with Node.js, MongoDB and Fastify
 
-This a Simple Project Based on a NUWE Challenge, you can use this project as a reference to learn the basics of **Restful API Development** with a different framework than [ExpressJS](https://expressjs.com/) in this case using [Fastify](https://fastify.dev/) to mount a web service
+This a Simple Restful API Template Project that you can use as a reference to learn the basics of **Restful API Development** with a different framework than [ExpressJS](https://expressjs.com/) in this case using [Fastify](https://fastify.dev/) to mount a web service
 
 This is not a Course but i will expose some useful information if you want to build and test this project with your own [MongoDB](https://mongodb.com/) database
 
 ### Preview of this project on render
 
-I've deployed this app previously on render, you can open this links to see this code in action
+I've deployed this app previously on render, you can open this links to see the code in action
 
 >[!IMPORTANT]
 >If you notice there is delay on the reply, please wait the free web service on render may shutdown the server when there is no use
