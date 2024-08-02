@@ -3,6 +3,8 @@ import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import {routes as routesV2} from './src/routes/v2/commonroutes.js'
 import {PORT, HOST} from './src/config/env.js'
+import ErrorHandler from './src/middleware/ErrorHandler.js'
+import notFoundHandler from './src/middleware/notFoundHandler.js'
 
 // Instance Fastify Web Service
 const app = Fastify({logger : true})
@@ -18,27 +20,10 @@ await app.register(cors, {
 })
 
 //Error Handler Middleware
-app.setErrorHandler((error, req, res) => {
-
-  const {statusCode, message} = error
-
-  const replyMessage = {
-      message : statusCode,
-      value : `From Handler: ${message}`
-  }
-  
-  res.status(error.statusCode).send(replyMessage)
-})
+app.setErrorHandler(ErrorHandler)
 
 //Not Found Route Handler Middleware
-app.setNotFoundHandler((req, res) => {
-
-  res.status(404).send({
-    message: 404,
-    value: `From Handler: ${req.raw.url} not Found on Server`
-  })
-  
-})
+app.setNotFoundHandler(notFoundHandler)
 
 //Register API Routes
 app.register(routesV2, {prefix : "/api/v2"})
